@@ -1,8 +1,8 @@
-import express, { Application, NextFunction, Request, Response } from "express";
-import cors from "cors";
-import httpStatus from "http-status";
+import express, { Application, NextFunction, Request, Response } from 'express';
+import cors from 'cors';
+import httpStatus from 'http-status';
 const app: Application = express();
-import cookieParser from "cookie-parser";
+import cookieParser from 'cookie-parser';
 
 app.use(cors());
 
@@ -15,11 +15,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(httpStatus.NOT_FOUND).json({
     success: false,
-    message: "Route not found",
+    message: 'Route not found',
     errorMessage: [
       {
-        path: ".",
-        message: "Api Is not found",
+        path: '.',
+        message: 'Api Is not found',
       },
     ],
   });
