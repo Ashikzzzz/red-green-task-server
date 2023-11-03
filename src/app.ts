@@ -11,6 +11,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// import necessery files
+import globalErrorHandler from './app/middlewares/globalErrorHandler';
+
+// use global error handler
+app.use(globalErrorHandler);
+
 // if not found any route or api
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(httpStatus.NOT_FOUND).json({
