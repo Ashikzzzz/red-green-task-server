@@ -5,6 +5,9 @@ import { listController } from './list.controller';
 
 const router = express.Router();
 
+// get all list
+router.get('/', listController.getAllList);
+
 // create list
 router.post(
   '/create-list',
