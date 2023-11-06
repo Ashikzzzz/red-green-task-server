@@ -11,7 +11,6 @@ const createList = async (payload: IList) => {
 };
 
 // get all list
-
 const getAllList = async (
   filters: IListFilters,
   paginationOption: IPaginationOption,
@@ -67,7 +66,30 @@ const getAllList = async (
   };
 };
 
+// get a single list
+const getASingleList = async (id: string): Promise<IList | null> => {
+  const result = await List.findById(id);
+  return result;
+};
+
+// update a list
+const updateList = async (id: string, payload: Partial<IList>) => {
+  const result = await List.findOneAndUpdate({ _id: id }, payload, {
+    new: true,
+  });
+  return result;
+};
+
+// delete a list
+const deleteList = async (id: string): Promise<IList | null> => {
+  const result = await List.findByIdAndDelete(id);
+  return result;
+};
+
 export const listService = {
   createList,
   getAllList,
+  getASingleList,
+  updateList,
+  deleteList,
 };

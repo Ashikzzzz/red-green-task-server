@@ -41,7 +41,50 @@ const getAllList = catchAsync(async (req: Request, res: Response) => {
   // next();
 });
 
+// get a single list
+const getASingleList = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await listService.getASingleList(id);
+
+  responseForData.sendResponseForCreate<IList>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: ' Successful',
+    data: result,
+  });
+});
+
+// update a list
+const updateList = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const updateData = req.body;
+  const result = await listService.updateList(id, updateData);
+
+  responseForData.sendResponseForCreate<IList>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'List Update Successful',
+    data: result,
+  });
+});
+
+// delete list
+const deleteList = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await listService.deleteList(id);
+
+  responseForData.sendResponseForCreate<IList>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'List Delete Successful',
+    data: result,
+  });
+});
+
 export const listController = {
   createUser,
   getAllList,
+  getASingleList,
+  updateList,
+  deleteList,
 };
