@@ -7,7 +7,7 @@ export type ITask = {
   list: Types.ObjectId | IList;
 };
 
-export type IListFilters = {
+export type ITaskFilters = {
   searchTerm?: string;
 };
 

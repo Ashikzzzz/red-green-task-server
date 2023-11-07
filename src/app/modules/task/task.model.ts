@@ -21,4 +21,4 @@ const taskSchema = new Schema<ITask>(
   },
 );
 
-export const Task = model<ITask, TaskModel>('Tist', taskSchema);
+export const Task = model<ITask, TaskModel>('Task', taskSchema);
