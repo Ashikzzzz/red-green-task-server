@@ -13,10 +13,6 @@ const userSchema = new Schema<IUser>({
     required: true,
     select: 0,
   },
-  role: {
-    type: String,
-    enum: ['admin', 'Viewer', 'reguler user'],
-  },
 });
 
 // hash the password
